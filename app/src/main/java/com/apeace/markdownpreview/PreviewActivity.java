@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
-import android.widget.RelativeLayout;
 
 import com.github.rjeschke.txtmark.Processor;
 
@@ -17,14 +16,10 @@ public class PreviewActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String markdown = intent.getStringExtra(MainActivity.EXTRA_MARKDOWN);
-
         String html = Processor.process(markdown);
 
-        WebView webview = new WebView(this);
+        WebView webview = (WebView) findViewById(R.id.web_view);
         webview.loadData(html, "text/html", null);
-
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.markdown_preview);
-        layout.addView(webview);
     }
 
 }
