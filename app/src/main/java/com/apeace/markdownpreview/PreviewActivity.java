@@ -3,8 +3,8 @@ package com.apeace.markdownpreview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class PreviewActivity extends AppCompatActivity {
 
@@ -16,13 +16,14 @@ public class PreviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String markdown = intent.getStringExtra(MainActivity.EXTRA_MARKDOWN);
 
-        // TODO display HTML instead of text
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(markdown);
+        // TODO convert markdown to html
+        String html = "<p>Testing</p>";
+
+        WebView webview = new WebView(this);
+        webview.loadData(html, "text/html", null);
 
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.markdown_preview);
-        layout.addView(textView);
+        layout.addView(webview);
     }
 
 }
