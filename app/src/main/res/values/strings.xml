@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Markdown Preview</string>
+    <string name="edit_title">Edit</string>
+    <string name="preview_title">Preview</string>
+</resources>
