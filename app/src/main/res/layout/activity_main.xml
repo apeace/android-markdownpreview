@@ -7,20 +7,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:gravity="top|left"
-        android:background="@android:color/transparent"
-        android:hint="@string/edit_hint"
-        android:layout_above="@+id/preview"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/preview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/preview_button"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:gravity="top|left"
+            android:background="@android:color/transparent"
+            android:hint="@string/edit_hint"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/preview_button"/>
+
+    </LinearLayout>
+
 
 </RelativeLayout>
