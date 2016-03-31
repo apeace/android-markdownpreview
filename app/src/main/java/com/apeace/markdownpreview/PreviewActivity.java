@@ -24,4 +24,5 @@ public class PreviewActivity extends AppCompatActivity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.markdown_preview);
         layout.addView(textView);
     }
+
 }
