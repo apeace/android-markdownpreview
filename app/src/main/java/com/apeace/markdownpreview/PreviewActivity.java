@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 
+import com.github.rjeschke.txtmark.Processor;
+
 public class PreviewActivity extends AppCompatActivity {
 
     @Override
@@ -16,8 +18,7 @@ public class PreviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String markdown = intent.getStringExtra(MainActivity.EXTRA_MARKDOWN);
 
-        // TODO convert markdown to html
-        String html = "<p>Testing</p>";
+        String html = Processor.process(markdown);
 
         WebView webview = new WebView(this);
         webview.loadData(html, "text/html", null);
