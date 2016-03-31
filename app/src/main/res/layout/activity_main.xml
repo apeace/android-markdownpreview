@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.apeace.markdownpreview.MainActivity"
+    android:id="@+id/markdown_edit"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
         <EditText
+            android:id="@+id/markdown_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
@@ -17,7 +19,8 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/preview"
+            android:id="@+id/preview_button"
+            android:onClick="preview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/preview_button"/>
