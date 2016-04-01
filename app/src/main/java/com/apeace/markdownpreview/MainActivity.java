@@ -24,4 +24,5 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MARKDOWN, markdown);
         startActivity(intent);
     }
+
 }
