@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
-import com.github.rjeschke.txtmark.Processor;
+import com.apeace.markdownpreview.util.MarkdownUtils;
 
 public class PreviewActivity extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class PreviewActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String markdown = intent.getStringExtra(MainActivity.EXTRA_MARKDOWN);
-        String html = Processor.process(markdown);
+        String html = MarkdownUtils.markdownToHtml(markdown);
 
         WebView webview = (WebView) findViewById(R.id.web_view);
         webview.loadData(html, "text/html", null);
