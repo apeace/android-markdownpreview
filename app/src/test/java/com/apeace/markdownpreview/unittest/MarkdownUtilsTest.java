@@ -1,4 +1,4 @@
-package com.apeace.markdownpreview;
+package com.apeace.markdownpreview.unittest;
 
 import org.junit.Test;
 

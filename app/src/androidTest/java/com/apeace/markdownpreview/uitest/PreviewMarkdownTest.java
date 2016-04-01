@@ -1,8 +1,12 @@
-package com.apeace.markdownpreview;
+package com.apeace.markdownpreview.uitest;
 
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
+
+import com.apeace.markdownpreview.MainActivity;
+import com.apeace.markdownpreview.R;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -23,7 +27,7 @@ public class PreviewMarkdownTest {
 
     @Test
     public void testPreviewButton() {
-        onView(withId(R.id.preview_button))
+        onView(ViewMatchers.withId(R.id.preview_button))
                 .perform(click());
         onView(withId(R.id.markdown_preview))
                 .check(matches(isDisplayed()));
