@@ -2,8 +2,12 @@
 
 A simple app I made to begin learning Android development.
 
+<img src="http://i.imgur.com/IIssGEH.png" />
+
+<!--
 <img src="http://i.imgur.com/yOMZKch.png" style="width:40%" />
 <img src="http://i.imgur.com/IOEvhgx.png" style="width:40%" />
+-->
 
 ## Running tests
 
