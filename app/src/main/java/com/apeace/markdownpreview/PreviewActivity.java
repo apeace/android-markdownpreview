@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 
 import com.apeace.markdownpreview.util.MarkdownUtils;
+import com.apeace.markdownpreview.util.Optional;
 
 public class PreviewActivity extends AppCompatActivity {
 
@@ -17,11 +18,13 @@ public class PreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_preview);
 
         Intent intent = getIntent();
-        String markdown = intent.getStringExtra(MainActivity.EXTRA_MARKDOWN);
-        String html = MarkdownUtils.markdownToHtml(markdown);
+        String nullableMarkdown = intent.getStringExtra(MainActivity.EXTRA_MARKDOWN);
+        Optional<String> markdown = Optional.ofNullable(nullableMarkdown);
+        String nullableHtml = MarkdownUtils.markdownToHtml(markdown.orElse(""));
+        Optional<String> html = Optional.ofNullable(nullableHtml);
 
         WebView webview = (WebView) findViewById(R.id.web_view);
-        webview.loadData(html, "text/html", null);
+        webview.loadData(html.orElse(""), "text/html", null);
     }
 
     @Override
