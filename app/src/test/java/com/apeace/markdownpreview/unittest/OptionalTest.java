@@ -11,58 +11,56 @@ import java.util.NoSuchElementException;
 public class OptionalTest {
 
     @Test
-    public void empty_isPresent() {
+    public void emptyIsPresent() {
         Optional<String> empty = Optional.empty();
         assertFalse(empty.isPresent());
     }
 
     @Test
-    public void empty_orElse() {
+    public void emptyOrElse() {
         Optional<String> empty = Optional.empty();
         assertEquals(empty.orElse("other"), "other");
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void empty_get() {
+    public void emptyGet() {
         Optional<String> empty = Optional.empty();
         empty.get();
     }
 
     @Test
-    public void of_isPresent() {
+    public void ofIsPresent() {
         Optional<String> nonEmpty = Optional.of("something");
         assertTrue(nonEmpty.isPresent());
     }
 
     @Test
-    public void of_orElse() {
+    public void ofOrElse() {
         Optional<String> nonEmpty = Optional.of("something");
         assertEquals(nonEmpty.orElse("other"), "something");
     }
 
     @Test
-    public void of_get() {
+    public void ofGet() {
         Optional<String> nonEmpty = Optional.of("something");
         assertEquals(nonEmpty.get(), "something");
     }
 
     @Test(expected = NullPointerException.class)
-    public void of_null() {
+    public void ofNull() {
         Optional.of(null);
     }
 
     @Test
-    public void ofNullable_null() {
+    public void ofNullableNull() {
         Optional<String> empty = Optional.ofNullable(null);
         assertFalse(empty.isPresent());
-
     }
 
     @Test
-    public void ofNullable_nonNull() {
+    public void ofNullableNonNull() {
         Optional<String> empty = Optional.ofNullable("something");
         assertTrue(empty.isPresent());
-
     }
 
 }
