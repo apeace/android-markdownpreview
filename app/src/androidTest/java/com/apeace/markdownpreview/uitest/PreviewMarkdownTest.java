@@ -7,7 +7,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 
 import com.apeace.markdownpreview.MainActivity;
 import com.apeace.markdownpreview.R;
-import com.apeace.markdownpreview.uitest.util.ScreenshotUtil;
+import static com.apeace.markdownpreview.uitest.util.ScreenshotViewAction.screenshot;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -42,8 +42,8 @@ public class PreviewMarkdownTest {
         onView(withId(R.id.preview_button))
                 .perform(click());
         onView(withId(R.id.markdown_preview))
-                .check(matches(isDisplayed()));
-        ScreenshotUtil.takeScreenshot("test", mActivityRule.getActivity());
+                .check(matches(isDisplayed()))
+                .perform(screenshot("test"));
         /*
         // TODO http://developer.android.com/reference/android/support/test/espresso/web/assertion/WebViewAssertions.html
         onView(withId(R.id.web_view))

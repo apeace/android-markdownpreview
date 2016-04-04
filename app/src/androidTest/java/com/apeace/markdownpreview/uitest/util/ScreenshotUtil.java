@@ -18,9 +18,13 @@ public final class ScreenshotUtil {
     // http://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types-android-instrumentation.html#test-types-android-instrumentation-screenshots
     public static final String SCREENSHOT_DIR = "/test-screenshots";
 
-    public static final String LOG_TAG = "SCREENSHOT_UTIL";
+    public static final String LOG_TAG = ScreenshotUtil.class.getSimpleName();
 
     public static void takeScreenshot(String name, Activity activity) {
+        takeScreenshot(name, activity.getWindow().getDecorView().getRootView());
+    }
+
+    public static void takeScreenshot(String name, View view) {
         if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             Log.e(LOG_TAG, "Media is not mounted");
             return;
@@ -40,10 +44,9 @@ public final class ScreenshotUtil {
 
         String filename = screenshotDir + "/" + name + ".png";
 
-        View srcView = activity.getWindow().getDecorView().getRootView();
-        srcView.setDrawingCacheEnabled(true);
-        Bitmap bitmap = Bitmap.createBitmap(srcView.getDrawingCache());
-        srcView.setDrawingCacheEnabled(false);
+        view.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+        view.setDrawingCacheEnabled(false);
 
         OutputStream out = null;
         File imageFile = new File(filename);
