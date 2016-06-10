@@ -31,3 +31,4 @@ defaults:
     build:
       - ./gradlew assembleDebug
       - ./gradlew assembleAndroidTest
+      - ./appium-python/build-devicefarm.sh
