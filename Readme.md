@@ -9,7 +9,7 @@ A simple app I made to begin learning Android development.
 <img src="http://i.imgur.com/IOEvhgx.png" style="width:40%" />
 -->
 
-## Running tests
+## Unit & instrumentation tests
 
 You can run tests via the command line:
 
@@ -31,3 +31,28 @@ Or via Android Studio using the following configs:
 ### UI tests
 
 <img src="http://i.imgur.com/Uwu90As.png" />
+
+## Appium Python tests
+
+I also rewrote the UI tests using Appium. To use it, first install Appium
+and run the server:
+
+```
+npm install -g appium
+ANDROID_HOME=/path/to/android/sdk appium
+```
+
+Then create a Python Virtualenv and install dependencies:
+
+```
+cd appium-python
+virtualenv env
+source env/bin/activate
+pip install -r requirements.txt
+```
+
+And run the tests:
+
+```
+py.test tests/
+```
