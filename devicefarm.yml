@@ -1,0 +1,33 @@
+project_arn: arn:aws:devicefarm:us-west-2:026109802893:project:1124416c-bfb2-4334-817c-e211ecef7dc0
+
+devicepool_definitions:
+  samsung_s3:
+    - (arn=device:50E24178F2274CFFA577EF130440D066) Samsung Galaxy S3 (AT&T)
+    - (arn=device:71F791A0C3CA4E9999304A1E8484339B) Samsung Galaxy S3 (Sprint)
+    - (arn=device:9E079354B7E9422CA52FF61B0BE345A1) Samsung Galaxy S3 (T-Mobile)
+
+  samsung_s4:
+    - (arn=device:D1C28D6B913C479399C0F594E1EBCAE4) Samsung Galaxy S4 (AT&T)
+    - (arn=device:33F66BE404B543669978079E905F8637) Samsung Galaxy S4 (Sprint)
+    - (arn=device:D45C750161314335924CE0B9B7D2558E) Samsung Galaxy S4 (T-Mobile)
+
+  samsung_s5:
+    - (arn=device:5CC0164714304CBF81BB7B7C03DFC1A1) Samsung Galaxy S5 (AT&T)
+    - (arn=device:18E28478F1D54525A15C2A821B6132FA) Samsung Galaxy S5 (Sprint)
+    - (arn=device:5931A012CB1C4E68BD3434DF722ADBC8) Samsung Galaxy S5 (T-Mobile)
+
+  everything:
+    - +samsung_s3
+    - +samsung_s4
+    - +samsung_s5
+
+defaults:
+    android:
+      apk: ./app/build/outputs/apk/app-debug.apk
+      apk_instrumentation: ./app/build/outputs/apk/app-debug-androidTest-unaligned.apk
+
+    devicepool: samsung_s5
+
+    build:
+      - ./gradlew assembleDebug
+      - ./gradlew assembleAndroidTest
