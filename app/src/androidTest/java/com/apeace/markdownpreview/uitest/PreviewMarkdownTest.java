@@ -35,7 +35,7 @@ public class PreviewMarkdownTest {
     }
 
     @Test
-    public void testMarkdownPreview() {
+    public void testPreviewWithMarkdown() {
         String markdown = "This is **bold**";
         onView(withId(R.id.markdown_text))
                 .perform(typeText(markdown), closeSoftKeyboard());
